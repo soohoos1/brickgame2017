@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PaddleScript : MonoBehaviour {
 
+	Rigidbody2D rigidBody;
+	public float speed = 5;
+
 	// Use this for initialization
 	void Start () {
+		rigidBody = GetComponent<Rigidbody2D> ();
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var rigidBody = GetComponent<Rigidbody2D> ();
 		float x = Input.GetAxisRaw ("Horizontal");
-		x = x * 20;
+		x = x * speed;
 		rigidBody.velocity = new Vector2 (x, 0);
-		//transform.Translate (0.005f, 0, 0);
+
 	}
 }
