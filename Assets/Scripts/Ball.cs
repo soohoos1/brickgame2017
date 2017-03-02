@@ -10,9 +10,17 @@ public class Ball : MonoBehaviour {
 	void Start () {
 		GetComponent<Rigidbody2D> ().velocity = startingVelocity; 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+		if (transform.position.y < -7.9F) {
+			GetOut ();
+		}
+	}
+
+	void GetOut()
+	{
+		Debug.Log ("You are out");
+
 	}
 }
