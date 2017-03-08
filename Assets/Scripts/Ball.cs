@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour {
 		lives = lives - 1; 
 
 		transform.position = startingPosition;
-		GetComponent<Rigidbody2D> ().velocity = new Vector2(); 
+		GetComponent<Rigidbody2D> ().velocity = startingVelocity; 
 
 
 		if (lives == 0) 
