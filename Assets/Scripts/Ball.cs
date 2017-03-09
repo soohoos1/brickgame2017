@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-	public Vector2 startingVelocity = new Vector2 (15, -20);
+	public Vector2 startingVelocity = new Vector2 (10, -20);
 	private Vector3 startingPosition; 
-	public GameObject gameOver; 
+	public GameObject gameOverSign; 
+	public GameObject youWinSign; 
 
 	int lives = 3; 
 
@@ -21,8 +22,9 @@ public class Ball : MonoBehaviour {
 		if (transform.position.y < -7.9F) {
 			GetOut ();
 		}
-		if (Input.GetButtonDown ("Jump"))
+		if (Input.GetButtonDown ("Jump")) {
 			GetComponent<Rigidbody2D> ().velocity = startingVelocity;
+		}
 	}
 
 	void GetOut()
@@ -32,8 +34,7 @@ public class Ball : MonoBehaviour {
 		lives = lives - 1; 
 
 		transform.position = startingPosition;
-		GetComponent<Rigidbody2D> ().velocity = startingVelocity; 
-
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 ();
 
 		if (lives == 0) 
 		{
@@ -43,6 +44,16 @@ public class Ball : MonoBehaviour {
 	}
 	void DoGameOver()
 	{
-		gameOver.SetActive(true); 
+		gameOverSign.SetActive(true); 
+	}
+
+	public void YouBrokeABrick()
+	{
+		var bricksLeft = FindObjectsOfType<Brick>().Length; 
+		Debug.Log ("bricksleft: "+bricksLeft);
+		if (bricksLeft == 0) {
+			youWinSign.SetActive (true);
+		}
 	}
 }
+

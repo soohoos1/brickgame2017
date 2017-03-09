@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-	public GameObject brickLevel2;
+	public int health = 2; 
 
 	// Use this for initialization
 	void Start () {
@@ -13,15 +13,16 @@ public class Brick : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		gameObject.SetActive (false);
+		health -= 1; //health -= 1 is the same as health = health -1, it is just saying subtracting one in this case
 
-			DoBrickLevel2 ();
+		if(health==0) {
+			gameObject.SetActive (false);
+			FindObjectOfType<Ball> ().YouBrokeABrick();
+		}
 
 	}
 
 
-	void DoBrickLevel2 ()
-	{
-		brickLevel2.SetActive(true);
-	}
+
+
 }
