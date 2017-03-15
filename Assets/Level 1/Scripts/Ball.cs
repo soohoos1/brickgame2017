@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour {
 
 	public Vector2 startingVelocity = new Vector2 (10, -20);
 	private Vector3 startingPosition; 
-	public GameObject gameOverSign; 
+	public GameObject gameOver1Sign; 
 	public GameObject youWinSign; 
 	public Text livesValue;
 	public Text pointsValue; 
@@ -24,7 +24,7 @@ public class Ball : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.y < -7.9F) {
+		if (transform.position.y < -9.9F) {
 			GetOut ();
 		}
 		if (Input.GetButtonDown ("Jump")) {
@@ -50,7 +50,7 @@ public class Ball : MonoBehaviour {
 	}
 	void DoGameOver()
 	{
-		gameOverSign.SetActive(true); 
+		gameOver1Sign.SetActive(true); 
 	}
 
 	public void YouBrokeABrick()
