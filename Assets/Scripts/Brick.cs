@@ -16,7 +16,7 @@ public class Brick : MonoBehaviour {
 	{
 		health -= 1; //health -= 1 is the same as health = health -1, it is just saying subtracting one in this case
 
-		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 0, health * 0.2F); //red, green, blue
+		//GetComponent<SpriteRenderer> ().color = new Color (2, 2, 2, health * 0.2F); //red, green, blue
 
 		if(health==0) {
 			gameObject.SetActive (false);

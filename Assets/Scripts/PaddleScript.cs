@@ -5,7 +5,7 @@ using UnityEngine;
 public class PaddleScript : MonoBehaviour {
 
 	Rigidbody2D rigidBody;
-	public float speed = 5;
+	public float speed = 20;
 
 	// Use this for initialization
 	void Start () {
